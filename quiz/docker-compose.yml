@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  quiz-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: javaapp
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      # Connects to MySQL running on host machine port 3306
+      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/learn_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Kartik@123
